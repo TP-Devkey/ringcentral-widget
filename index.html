@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RingCentral Widget</title>
+</head>
+<body>
+    <div id="rce-widget"></div>
+    <script>
+        (function() {
+            var rcs = document.createElement("script");
+            rcs.src = "https://ringcentral.github.io/ringcentral-embeddable/adapter.js";
+            var rcs0 = document.getElementsByTagName("script")[0];
+            rcs0.parentNode.insertBefore(rcs, rcs0);
+            rcs.onload = function() {
+                RingCentralEmbeddableWidget.createWidget();
+            };
+        })();
+    </script>
+</body>
+</html>
