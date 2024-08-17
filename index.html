@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RingCentral Widget</title>
-</head>
-<body>
-    <div id="rce-widget"></div>
-    <script>
-        (function() {
-            var rcs = document.createElement("script");
-            rcs.src = "https://ringcentral.github.io/ringcentral-embeddable/adapter.js";
-            var rcs0 = document.getElementsByTagName("script")[0];
-            rcs0.parentNode.insertBefore(rcs, rcs0);
-            rcs.onload = function() {
-                RingCentralEmbeddableWidget.createWidget();
-            };
-        })();
-    </script>
-</body>
-</html>
+<script>
+  // Important: the origin is used for postMessage
+  // Set "origin" to the same domain as the Embeddable library
+  var origin = 'https://apps.ringcentral.com';
+  if (window.opener) {
+    // pass callbackUri to widget
+    window.opener.postMessage({
+      callbackUri: window.location.href,
+    }, origin);
+    window.close(); // close the login popup window
+  }
+</script>
